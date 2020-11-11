@@ -2,7 +2,6 @@ package com.zmin.baseproject.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
-import com.zmin.baseproject.MainActivity
 import com.zmin.baseproject.R
 import com.zmin.baseproject.databinding.ActivityWelcomeBinding
 import com.zmin.mvvm.base.activity.BaseActivity

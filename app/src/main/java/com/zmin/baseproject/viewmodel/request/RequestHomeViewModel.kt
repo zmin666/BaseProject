@@ -15,6 +15,7 @@ import com.zmin.mvvm.ext.request
  */
 class RequestHomeViewModel : BaseViewModel() {
 
+    //mvvm中ViewModel持有MutableLiveData然后设置value.就可以动态改变view
     //首页文章列表数据
     var homeDataState: MutableLiveData<ListDataUiState<AriticleResponse>> = MutableLiveData()
 
@@ -42,7 +43,7 @@ class RequestHomeViewModel : BaseViewModel() {
                     listData = arrayListOf<AriticleResponse>()
                 )
             homeDataState.value = listDataUiState
-        })
+        },true)
     }
 
 }

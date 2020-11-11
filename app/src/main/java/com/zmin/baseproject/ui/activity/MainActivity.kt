@@ -1,9 +1,10 @@
-package com.zmin.baseproject
+package com.zmin.baseproject.ui.activity
 
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.zmin.baseproject.R
 import com.zmin.baseproject.databinding.ActivityMainBinding
 import com.zmin.baseproject.ui.adapter.ArticleAdapter
 import com.zmin.baseproject.viewmodel.request.RequestHomeViewModel
