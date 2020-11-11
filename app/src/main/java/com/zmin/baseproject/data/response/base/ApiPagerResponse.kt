@@ -1,4 +1,4 @@
-package com.zmin.baseproject.data.model.bean.base
+package com.zmin.baseproject.data.response.base
 
 import java.io.Serializable
 

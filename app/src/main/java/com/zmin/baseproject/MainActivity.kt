@@ -2,7 +2,6 @@ package com.zmin.baseproject
 
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zmin.baseproject.databinding.ActivityMainBinding
@@ -14,8 +13,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<BaseViewModel, ActivityMainBinding>() {
 
-
-    //请求数据ViewModel
     private val requestHomeViewModel: RequestHomeViewModel = RequestHomeViewModel()
 
     override fun layoutId(): Int = R.layout.activity_main

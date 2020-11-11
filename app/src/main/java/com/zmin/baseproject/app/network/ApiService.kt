@@ -1,8 +1,8 @@
 package com.zmin.baseproject.app.network
 
-import com.zmin.baseproject.data.model.bean.AriticleResponse
-import com.zmin.baseproject.data.model.bean.base.ApiBaseResponse
-import com.zmin.baseproject.data.model.bean.base.ApiPagerResponse
+import com.zmin.baseproject.data.response.AriticleResponse
+import com.zmin.baseproject.data.response.base.ApiBaseResponse
+import com.zmin.baseproject.data.response.base.ApiPagerResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 

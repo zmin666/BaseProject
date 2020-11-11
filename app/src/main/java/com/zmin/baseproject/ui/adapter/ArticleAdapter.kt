@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.zmin.baseproject.R
-import com.zmin.baseproject.data.model.bean.AriticleResponse
-import com.zmin.mvvm.model.bean.netbean.ListDataUiState
+import com.zmin.baseproject.data.response.AriticleResponse
+import com.zmin.baseproject.data.response.base.ListDataUiState
 import kotlinx.android.synthetic.main.item.view.*
 
 /**

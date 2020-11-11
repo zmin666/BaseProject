@@ -1,4 +1,4 @@
-package com.zmin.mvvm.model.bean.netbean
+package com.zmin.baseproject.data.response.base
 
 /**
  * @author: ZhangMin

@@ -2,10 +2,10 @@ package com.zmin.baseproject.viewmodel.request
 
 import androidx.lifecycle.MutableLiveData
 import com.zmin.baseproject.app.network.HttpRequestCoroutine
-import com.zmin.baseproject.data.model.bean.AriticleResponse
+import com.zmin.baseproject.data.response.AriticleResponse
+import com.zmin.baseproject.data.response.base.ListDataUiState
 import com.zmin.mvvm.base.viewmodel.BaseViewModel
 import com.zmin.mvvm.ext.request
-import com.zmin.mvvm.model.bean.netbean.ListDataUiState
 
 /**
  * @author: ZhangMin

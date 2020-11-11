@@ -1,4 +1,4 @@
-package com.zmin.baseproject.data.model.bean
+package com.zmin.baseproject.data.response
 
 import android.annotation.SuppressLint
 import android.os.Parcelable

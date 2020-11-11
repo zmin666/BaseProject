@@ -17,6 +17,10 @@ class BaseApp : Application(), ViewModelStoreOwner {
 
     private var mFactory: ViewModelProvider.Factory? = null
 
+    companion object{
+        lateinit var application:Application
+    }
+
     override fun getViewModelStore(): ViewModelStore {
         return mAppViewModel
     }
@@ -24,7 +28,9 @@ class BaseApp : Application(), ViewModelStoreOwner {
     override fun onCreate() {
         super.onCreate()
         mAppViewModel = ViewModelStore()
+        application = this
     }
+
 
     fun getAppViewModelProvider(): ViewModelProvider {
         return ViewModelProvider(this, this.getAppFactory())
