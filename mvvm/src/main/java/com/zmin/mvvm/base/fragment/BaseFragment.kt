@@ -5,10 +5,10 @@ import androidx.databinding.ViewDataBinding
 import com.zmin.mvvm.base.viewmodel.BaseViewModel
 import com.zmin.mvvm.callback.livedata.AppViewModel
 import com.zmin.mvvm.callback.livedata.EventViewModel
-import com.zmin.mvvm.ext.dismissLoadingExt
-import com.zmin.mvvm.ext.getAppViewModel
-import com.zmin.mvvm.ext.hideSoftKeyboard
-import com.zmin.mvvm.ext.showLoadingExt
+import com.zmin.mvvm.Ext.dismissLoadingExt
+import com.zmin.mvvm.Ext.getAppViewModel
+import com.zmin.mvvm.Ext.hideSoftKeyboard
+import com.zmin.mvvm.Ext.showLoadingExt
 
 /**
  * @author: ZhangMin
@@ -17,7 +17,9 @@ import com.zmin.mvvm.ext.showLoadingExt
  * @desc:
  */
 abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : BaseVmDbFragment<VM, DB>() {
-
+    val TAG: String by lazy {
+        this.javaClass.simpleName
+    }
     // 定义一个app全局ViewModel 存放账户信息,基本配置信息
     val appViewModel: AppViewModel by lazy { getAppViewModel<AppViewModel>() }
 

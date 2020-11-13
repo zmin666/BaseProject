@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
+import androidx.multidex.MultiDex
+import com.tencent.mmkv.MMKV
 
 /**
  * @author: ZhangMin
@@ -29,6 +31,8 @@ class BaseApp : Application(), ViewModelStoreOwner {
         super.onCreate()
         mAppViewModel = ViewModelStore()
         application = this
+
+        MMKV.initialize(this.filesDir.absolutePath + "/mmkv") //腾讯开发的高性能存储组件
     }
 
 

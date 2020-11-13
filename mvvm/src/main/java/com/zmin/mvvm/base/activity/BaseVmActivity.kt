@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.zmin.mvvm.base.viewmodel.BaseViewModel
-import com.zmin.mvvm.ext.getVmClass
+import com.zmin.mvvm.Ext.getVmClass
 
 /**
  * @author: ZhangMin

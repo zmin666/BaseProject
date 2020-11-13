@@ -1,6 +1,7 @@
 package com.zmin.baseproject.ui.fragment
 
 import android.os.Bundle
+import androidx.viewpager2.widget.ViewPager2
 import com.zmin.baseproject.R
 import com.zmin.baseproject.databinding.FragmentMainBinding
 import com.zmin.baseproject.ui.adapter.MainViewpagerAdapter
@@ -19,9 +20,15 @@ class MainFragment : BaseFragment<BaseViewModel, FragmentMainBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         mainViewPager.apply {
-            isUserInputEnabled = false
+            isUserInputEnabled = true
             offscreenPageLimit = 5
             adapter = MainViewpagerAdapter(this@MainFragment)
+            registerOnPageChangeCallback(object :ViewPager2.OnPageChangeCallback(){
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+                    btNavigation.getMenu().getItem(position).setChecked(true);
+                }
+            })
         }
 
         btNavigation.apply { //底部导航页面

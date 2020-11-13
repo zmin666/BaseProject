@@ -5,9 +5,9 @@ import androidx.databinding.ViewDataBinding
 import com.zmin.mvvm.base.viewmodel.BaseViewModel
 import com.zmin.mvvm.callback.livedata.AppViewModel
 import com.zmin.mvvm.callback.livedata.EventViewModel
-import com.zmin.mvvm.ext.dismissLoadingExt
-import com.zmin.mvvm.ext.getAppViewModel
-import com.zmin.mvvm.ext.showLoadingExt
+import com.zmin.mvvm.Ext.dismissLoadingExt
+import com.zmin.mvvm.Ext.getAppViewModel
+import com.zmin.mvvm.Ext.showLoadingExt
 import me.jessyan.autosize.AutoSizeCompat
 
 /**
@@ -17,6 +17,10 @@ import me.jessyan.autosize.AutoSizeCompat
  * @desc:
  */
 abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding> : BaseVmDbActivity<VM, DB>() {
+
+    val TAG: String by lazy {
+        this.localClassName
+    }
 
     val appViewModel: AppViewModel by lazy { getAppViewModel<AppViewModel>() }
 

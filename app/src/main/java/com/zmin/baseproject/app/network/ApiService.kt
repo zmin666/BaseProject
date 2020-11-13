@@ -1,7 +1,7 @@
 package com.zmin.baseproject.app.network
 
 import com.zmin.baseproject.data.response.AriticleResponse
-import com.zmin.baseproject.data.response.base.ApiBaseResponse
+import com.zmin.baseproject.data.response.base.BaseResponse
 import com.zmin.baseproject.data.response.base.ApiPagerResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -24,6 +24,6 @@ interface ApiService {
      * 获取首页文章数据
      */
     @GET("article/list/{page}/json")
-    suspend fun getAritrilList(@Path("page") pageNo: Int): ApiBaseResponse<ApiPagerResponse<ArrayList<AriticleResponse>>>
+    suspend fun getAritrilList(@Path("page") pageNo: Int): BaseResponse<ApiPagerResponse<ArrayList<AriticleResponse>>>
 
 }

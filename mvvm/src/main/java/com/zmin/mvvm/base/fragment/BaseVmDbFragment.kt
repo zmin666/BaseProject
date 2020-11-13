@@ -19,6 +19,7 @@ abstract class BaseVmDbFragment<VM : BaseViewModel, DB : ViewDataBinding> : Base
 
     private lateinit var mDataBinding: DB
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

@@ -1,4 +1,4 @@
-package com.zmin.mvvm.network
+package com.zmin.mvvm.network.error
 
 /**
  * @author: ZhangMin

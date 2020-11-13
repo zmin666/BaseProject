@@ -6,7 +6,7 @@ package com.zmin.mvvm.network
  * @version: 1.0
  * @desc:
  */
-abstract class BaseResponse<T> {
+abstract class ApiResponse<T> {
 
     //抽象方法，用户的基类继承该类时，需要重写该方法
     abstract fun isSucces(): Boolean

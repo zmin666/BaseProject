@@ -1,4 +1,4 @@
-package com.zmin.mvvm.ext
+package com.zmin.mvvm.Ext
 
 import android.app.Activity
 import android.view.inputmethod.InputMethodManager

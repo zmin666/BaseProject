@@ -1,4 +1,4 @@
-package com.zmin.mvvm.ext
+package com.zmin.mvvm.Ext
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment

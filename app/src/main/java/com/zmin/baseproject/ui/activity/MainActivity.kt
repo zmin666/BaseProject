@@ -1,6 +1,7 @@
 package com.zmin.baseproject.ui.activity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.Navigation
 import com.blankj.utilcode.util.ToastUtils
@@ -25,7 +26,7 @@ class MainActivity : BaseActivity<BaseViewModel, ActivityMainBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         //配置bugly
-        Beta.checkUpgrade(false, true)
+      //  Beta.checkUpgrade(false, true)
         //返回键
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
