@@ -1,6 +1,9 @@
 package com.zmin.baseproject.app.ext
 
+import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
+import com.kingja.loadsir.core.LoadService
+import com.kingja.loadsir.core.LoadSir
 import com.yanzhenjie.recyclerview.SwipeRecyclerView
 import com.zmin.baseproject.ui.weight.recyclerview.DefineLoadMoreView
 import com.zmin.mvvm.base.BaseApp
@@ -35,4 +38,14 @@ fun SwipeRecyclerView.initFooter(loadmoreListener: SwipeRecyclerView.LoadMoreLis
         setLoadMoreListener(loadmoreListener)
     }
     return footerView
+}
+
+fun loadServiceInit(view: View, callback: () -> Unit): LoadService<Any> {
+    val loadsir = LoadSir.getDefault().register(view) {
+        //点击重试时触发的操作
+        callback.invoke()
+    }
+    loadsir.showSuccess()
+    SettingUtil.setLoadingColor(SettingUtil.getColor(BaseApp.application), loadsir)
+    return loadsir
 }

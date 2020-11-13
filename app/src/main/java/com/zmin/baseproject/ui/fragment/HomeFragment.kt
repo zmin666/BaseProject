@@ -7,9 +7,12 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blankj.utilcode.util.ConvertUtils
 import com.blankj.utilcode.util.ToastUtils
+import com.kingja.loadsir.core.LoadService
+import com.kingja.loadsir.core.LoadSir
 import com.yanzhenjie.recyclerview.SwipeRecyclerView
 import com.zmin.baseproject.R
 import com.zmin.baseproject.app.ext.initFooter
+import com.zmin.baseproject.app.ext.loadServiceInit
 import com.zmin.baseproject.databinding.FragmentHomeBinding
 import com.zmin.baseproject.ui.adapter.AriticleAdapter
 import com.zmin.baseproject.ui.weight.recyclerview.SpaceItemDecoration
@@ -31,6 +34,11 @@ class HomeFragment : BaseFragment<BaseViewModel, FragmentHomeBinding>() {
     //todo  这个适配器要加强学习
     private val articleAdapter: AriticleAdapter by lazy { AriticleAdapter(arrayListOf(), true) }
 
+
+    //界面状态管理者
+    private lateinit var loadsir: LoadService<Any>
+
+
     //请求数据ViewModel
     private val requestHomeViewModel: RequestHomeViewModel by viewModels()
 
@@ -38,6 +46,13 @@ class HomeFragment : BaseFragment<BaseViewModel, FragmentHomeBinding>() {
     override fun layoutId(): Int = R.layout.fragment_home
 
     override fun initView(savedInstanceState: Bundle?) {
+        //状态页配置
+        loadsir = LoadSir.getDefault().register(view) {
+            //点击重试时触发的操作
+            requestHomeViewModel.getHomeData(true)
+        }
+        loadsir.showSuccess()
+
         toolbar.run {
             title = "首页"
             inflateMenu(R.menu.home_menu) //搜索框
