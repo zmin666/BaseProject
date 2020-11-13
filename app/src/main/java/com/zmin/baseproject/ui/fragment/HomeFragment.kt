@@ -1,14 +1,18 @@
 package com.zmin.baseproject.ui.fragment
 
+import SettingUtil
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.blankj.utilcode.util.ConvertUtils
 import com.blankj.utilcode.util.ToastUtils
+import com.yanzhenjie.recyclerview.SwipeRecyclerView
 import com.zmin.baseproject.R
+import com.zmin.baseproject.app.ext.initFooter
 import com.zmin.baseproject.databinding.FragmentHomeBinding
 import com.zmin.baseproject.ui.adapter.AriticleAdapter
+import com.zmin.baseproject.ui.weight.recyclerview.SpaceItemDecoration
 import com.zmin.baseproject.viewmodel.request.RequestHomeViewModel
 import com.zmin.mvvm.base.fragment.BaseFragment
 import com.zmin.mvvm.base.viewmodel.BaseViewModel
@@ -52,6 +56,8 @@ class HomeFragment : BaseFragment<BaseViewModel, FragmentHomeBinding>() {
             setHasFixedSize(true)
             adapter = articleAdapter
             isNestedScrollingEnabled = true
+            addItemDecoration(SpaceItemDecoration(0, ConvertUtils.dp2px(8f), false))
+            initFooter(SwipeRecyclerView.LoadMoreListener { requestHomeViewModel.getHomeData(false) })
         }
 
         swipeRefresh.run {
@@ -71,8 +77,10 @@ class HomeFragment : BaseFragment<BaseViewModel, FragmentHomeBinding>() {
     override fun createObserver() {
         requestHomeViewModel.run {
             homeDataState.observe(viewLifecycleOwner, Observer {
+                swipeRefresh.isRefreshing = false
+                recyclerView.loadMoreFinish(it.isEmpty, it.hasMore)
                 if (it.isSuccess) {
-                    if (it.isFirstEmpty) {
+                    if (it.isRefresh) {
                         articleAdapter.setList(it.listData)
                     } else {
                         articleAdapter.addData(it.listData)

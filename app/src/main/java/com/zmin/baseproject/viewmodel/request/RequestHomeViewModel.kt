@@ -20,6 +20,7 @@ class RequestHomeViewModel : BaseViewModel() {
 
     //mvvm中ViewModel持有MutableLiveData然后设置value.就可以动态改变view
     //首页文章列表响应数据
+    var pageNo = 0
     var homeDataState: MutableLiveData<ListDataUiState<AriticleResponse>> = MutableLiveData()
 
     /**
@@ -27,8 +28,12 @@ class RequestHomeViewModel : BaseViewModel() {
      * @param isRefresh 是否是刷新，即第一页
      */
     fun getHomeData(isRefresh: Boolean) {
-        request({ HttpRequestCoroutine.getHomeData() }, {
+        if (isRefresh) {
+            pageNo = 0;
+        }
+        request({ HttpRequestCoroutine.getHomeData(pageNo) }, {
             //请求成功
+            pageNo++
             val listDataUiState =
                 ListDataUiState(
                     isSuccess = true,

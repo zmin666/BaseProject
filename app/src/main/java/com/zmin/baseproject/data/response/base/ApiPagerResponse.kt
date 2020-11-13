@@ -26,6 +26,7 @@ data class ApiPagerResponse<T>(
 
     /**
      * 是否还有更多数据
+     * 这里做个假数据, 只有三页数据
      */
-    fun hasMore() = !over
+    fun hasMore() = curPage <= 2
 }
