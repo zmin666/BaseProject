@@ -17,7 +17,7 @@ import com.zmin.mvvm.base.viewmodel.BaseViewModel
  */
 abstract class BaseVmDbFragment<VM : BaseViewModel, DB : ViewDataBinding> : BaseVmFragment<VM>() {
 
-    private lateinit var mDataBinding: DB
+    lateinit var mDataBinding: DB
 
 
     override fun onCreateView(

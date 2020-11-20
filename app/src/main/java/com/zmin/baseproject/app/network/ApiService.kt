@@ -1,10 +1,12 @@
 package com.zmin.baseproject.app.network
 
+import com.zmin.baseproject.data.request.GetBodyRequest
 import com.zmin.baseproject.data.response.AriticleResponse
 import com.zmin.baseproject.data.response.base.BaseResponse
 import com.zmin.baseproject.data.response.base.ApiPagerResponse
-import retrofit2.http.GET
-import retrofit2.http.Path
+import com.zmin.baseproject.data.response.base.BodyTest
+import okhttp3.RequestBody
+import retrofit2.http.*
 
 /**
  * 作者　: hegaojian
@@ -26,4 +28,12 @@ interface ApiService {
     @GET("article/list/{page}/json")
     suspend fun getAritrilList(@Path("page") pageNo: Int): BaseResponse<ApiPagerResponse<ArrayList<AriticleResponse>>>
 
+
+    /**
+     * 获取身体检测数据
+     */
+    @Multipart
+    @JvmSuppressWildcards
+    @POST("https://api-cn.faceplusplus.com/humanbodypp/v1/skeleton")
+    suspend fun getBodyData(@PartMap requestBodyMap: Map<String, RequestBody>): BaseResponse<BodyTest>
 }

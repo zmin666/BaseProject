@@ -1,11 +1,15 @@
 package com.zmin.baseproject.app.network
 
+import com.zmin.baseproject.data.request.GetBodyRequest
 import com.zmin.baseproject.data.response.AriticleResponse
 import com.zmin.baseproject.data.response.base.BaseResponse
 import com.zmin.baseproject.data.response.base.ApiPagerResponse
+import com.zmin.baseproject.data.response.base.BodyTest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
+import okhttp3.RequestBody
+import retrofit2.http.PartMap
 
 /**
  * @author: ZhangMin
@@ -29,6 +33,17 @@ class HttpRequestManger {
     suspend fun getHomeData(pageNo: Int): BaseResponse<ApiPagerResponse<ArrayList<AriticleResponse>>> {
         return withContext(Dispatchers.IO) {
             val data = async { apiService.getAritrilList(pageNo) }
+            data.await()
+        }
+    }
+
+
+    /**
+     * 获取身体检测数据
+     */
+    suspend fun getBodyData( requestBodyMap: Map<String, RequestBody>): BaseResponse<BodyTest> {
+        return withContext(Dispatchers.IO) {
+            val data = async { apiService.getBodyData(requestBodyMap) }
             data.await()
         }
     }
